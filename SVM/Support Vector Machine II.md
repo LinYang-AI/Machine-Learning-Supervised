@@ -129,13 +129,13 @@ $$
 
 where $\underset{\text{all\ w}}{inf}$ means to calculate the minimal for all $w$. So the objective function of dual problem is to find the maximal of the minimal $L(w, \alpha, \beta)$ for all $w$ with given $(\alpha, \beta)$.
 
-Here, we need to introduce a theorem: **if $w*$ is solution of the prime problem and $\alpha*$, $\beta*$ are the solution of dual problem, then we have** $f(w^{\*})\ge\theta(\alpha^{\*}, \beta^{\*})$
+Here, we need to introduce a theorem: **if $w^{\*}$ is solution of the prime problem and $\alpha^{\*}$, $\beta^{\*}$ are the solution of dual problem, then we have** $f(w^{\*})\ge\theta(\alpha^{\*}, \beta^{\*})$
 
 $$
 \begin{align}
-\theta(\alpha^*, \beta^*) &= \underset{\text{all w}}{inf}\{L(w^*, \alpha^*, \beta^*)\}\\
-&\le L(w^*, \alpha^*, \beta^*)\\
-&= f(w^*) + \sum^K_{i=1}\alpha^*_ig_i(w^*)+\sum^M_{i=1}\beta^*_ih_i(w^*)\\
+\theta(\alpha^{\*}, \beta^{\*}) &= \underset{\text{all w}}{inf}\{L(w^{\*}, \alpha^{\*}, \beta^{\*})\}\\
+&\le L(w^{*}, \alpha^{*}, \beta^{*})\\
+&= f(w^{*}) + \sum^K_{i=1}\alpha^*_ig_i(w^*)+\sum^M_{i=1}\beta^*_ih_i(w^*)\\
 &\le f(w^*)
 \end{align}
 $$
