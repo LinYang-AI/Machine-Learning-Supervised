@@ -33,7 +33,6 @@ $$
 
 then the optimization problem is solvalble.
 
-
 ## Kernel Function
 
 Common used kernel functions:
@@ -60,7 +59,6 @@ $$
 
 where $\varphi(x)$ has definite dimension
 
-
 However, the kernel function $K(x_1, x_2)$ must satisfy certain constraint so that $K(x_1, x_2)=\varphi(x_1)^T\varphi(x_2)$
 
 The necessary and sufficient condition is:
@@ -75,7 +73,6 @@ $$
 &\sum_{i=1}^N\sum_{j=1}^NC_iC_jK(x_i, x_j)\ge 0
 \end{align}
 $$
-
 
 (where the second condition is called **positive semi-definiteness)**
 
@@ -94,7 +91,6 @@ K(x_i, x_j)=\varphi(x_i)^T\varphi(x_j)
 $$
 
 with $i=1...N$ and we know $K(x_i, x_j)$ but do not know $\varphi(x)$
-
 
 To solve this problem, we need to review the **prime problem** and the **dual problem**.
 
@@ -156,7 +152,6 @@ $$
 G=f(w^{\ast})-\theta(\alpha^{\ast}, \beta^{\ast})\ge 0
 $$
 
-
 According to the **Strong duality theorem**,
 
 > $f(w)$ is convex function, $g(w)=Aw+b$ and $h(w)=Cw+d$ are linear, then the duality gap of the optimization problem is 0.
@@ -166,11 +161,11 @@ According to the **Strong duality theorem**,
 Thereby,
 
 $$
-\begin{align}
+\begin{align*}
 \theta(\alpha^{\ast}, \beta^{\ast}) &=\underset{\text{all\; w}}{inf}\{L(w, \alpha^{\ast}, \beta^{\ast})\}\\
 &\le L(w^{\ast}, \alpha^{\ast}, \beta^{\ast})\\
-&=f(w^{\ast})+\sum^K_{i=1}\alpha^{\ast}_ig_i(w^{\ast})+\sum^M_{i=1}\beta_ih_i(w^{\ast})
-\end{align}
+&=f(w^{\ast})+\sum_{i=1}^K\alpha^{\ast}_{i}g_{i}(w^{\ast})+\sum_{i=1}^M\beta_{i}h_{i}(w^{\ast})
+\end{align*}
 $$
 
 then for $\forall i = 1...K$, we'll have solution that is either $\alpha^{\ast}=0$ or $g^{\ast}_i(w^{\ast})=0$. This is called **KKT Theorem**.
@@ -289,7 +284,6 @@ Solving this problem will solve the SVM problem.
 
 The algorithm to solve find $\{\alpha_i\}$ is **'[SMO Algorithm](../SVM/SMO Algorithm.md)'**
 
-
 > NOTE: **Why we only need to know the $K(x_i, x_j)$ and do not need to know the exact form of $\varphi(x_i)$. Knowing we have $\varphi(x_i)$ in the $w$:**
 >
 > $$
@@ -298,7 +292,7 @@ The algorithm to solve find $\{\alpha_i\}$ is **'[SMO Algorithm](../SVM/SMO Algo
 >
 > EXPLANATION:
 >
-> Let say we have test data set $X$, then 
+> Let say we have test data set $X$, then
 >
 > $$
 > \begin{cases}
@@ -351,8 +345,6 @@ The algorithm to solve find $\{\alpha_i\}$ is **'[SMO Algorithm](../SVM/SMO Algo
 > &=\frac{1-y_i\displaystyle\sum^N_{j=1}\alpha_jy_jK(x_j,x_i)}{y_i}
 > \end{align}
 > $$
-
-
 
 ## Summary
 
