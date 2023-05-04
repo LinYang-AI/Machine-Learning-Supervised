@@ -158,8 +158,6 @@ According to the **Strong duality theorem**,
 >
 > i.e. with $w^*$ is solution of prime proble, $\alpha^{\ast}$ and $\beta^{\ast}$ are solutions of dual problem, we have $f(w^{\ast})=\theta(\alpha^{\ast}, \beta^{\ast})$
 
-
-
 Thereby,
 
 $$
@@ -169,7 +167,6 @@ $$
 &= f(w^{\ast}) + \sum^K_{i=1}\alpha_{i}^{\ast}g_i(w^{\ast})+\sum^M_{i=1}\beta_{i}^{\ast}h_{i}(w^{\ast})\\
 \end{align*}
 $$
-
 
 then for $\forall i = 1...K$, we'll have solution that is either $\alpha^{\ast}=0$ or $g^{\ast}_i(w^{\ast})=0$. This is called **KKT Theorem**.
 
@@ -321,7 +318,7 @@ $$
 i.e. \quad \alpha_i=0 \quad or \quad 1+\xi_i-y_iw^T\varphi(x_i)-y_ib=0
 $$
 
-To find $b$, let take an $\alpha_{i}$ that is $0 < \alpha_{i} < C$
+To find $b$, let take an $\alpha_i$ that is $0 < \alpha_{i} < C$
 
 $$
 \Rightarrow \beta_i=C-\alpha_i >0\;\; (\beta_i \ne 0)\\
