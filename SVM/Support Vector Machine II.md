@@ -166,11 +166,6 @@ $$
 \theta(\alpha^{\ast}, \beta^{\ast}) = \inf_{\text{all } w} L(w, \alpha^{\ast}, \beta^{\ast}) \le L(w^{\ast}, \alpha^{\ast}, \beta^{\ast}) = f(w^{\ast}) + \sum_{i=1}^K \alpha^{\ast}_i g_i(w^{\ast}) + \sum_{i=1}^M \beta_i h_i(w^{\ast})
 $$
 
-$$
-
-
-$$
-
 
 $$
 \begin{align}
