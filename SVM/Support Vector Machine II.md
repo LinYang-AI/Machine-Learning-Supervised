@@ -168,7 +168,7 @@ $$
 &\le L(w^{\ast}, \alpha^{\ast}, \beta^{\ast})\\
 &= f(w^{\ast}) + \sum^K_{i=1}\alpha_{i}^{\ast}g_i(w^{\ast})+\sum^M_{i=1}\beta_{i}^{\ast}h_{i}(w^{\ast})\\
 &\le f(w^{\ast})
-\end{align*
+\end{align*}
 $$
 
 
