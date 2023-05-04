@@ -129,33 +129,32 @@ $$
 
 where $\underset{\text{all\ w}}{inf}$ means to calculate the minimal for all $w$. So the objective function of dual problem is to find the maximal of the minimal $L(w, \alpha, \beta)$ for all $w$ with given $(\alpha, \beta)$.
 
-Here, we need to introduce a theorem: **if $w^{\*}$ is solution of the prime problem and $\alpha^{\*}$, $\beta^{\*}$ are the solution of dual problem, then we have** $f(w^{\*})\ge\theta(\alpha^{\*}, \beta^{\*})$
+Here, we need to introduce a theorem: **if $w^{\ast}$ is solution of the prime problem and $\alpha^{\ast}$, $\beta^{\ast}$ are the solution of dual problem, then we have** $f(w^{\ast})\ge\theta(\alpha^{\ast}, \beta^{\ast})$
 
-```
-math
+$$
 \begin{align*}
-\theta(\alpha^{\*}, \beta^{\*}) &= \underset{\text{all w}}{inf}\{L(w^{\*}, \alpha^{\*}, \beta^{\*})\}\\
-&\le L(w^{\*}, \alpha^{\*}, \beta^{\*})\\
-&= f(w^{\*}) + \sum^K_{i=1}\alpha^{\*}_ig_i(w^{\*})+\sum^M_{i=1}\beta^{\*}_ih_i(w^{\*})\\
-&\le f(w^{\*})
+\theta(\alpha^{\ast}, \beta^{\ast}) &= \underset{\text{all w}}{inf}\{L(w^{\ast}, \alpha^{\ast}, \beta^{\ast})\}\\
+&\le L(w^{\ast}, \alpha^{\ast}, \beta^{\ast})\\
+&= f(w^{\ast}) + \sum^K_{i=1}\alpha^{\ast}_ig_i(w^{\ast})+\sum^M_{i=1}\beta^{\ast}_ih_i(w^{\ast})\\
+&\le f(w^{\ast})
 \end{align*}
-```
+$$
 
 
-From (21) to (22), for $w*$ is prime problem's solution, then the constraints must be satisfied:
+From (21) to (22), for $w^{\ast}$ is prime problem's solution, then the constraints must be satisfied:
 
 $$
 \begin{cases}
-g_i(w^*)&\le0\\
-h_i(w^*)&=0\\
-\alpha^*_i&\ge 0
+g_i(w^{\ast})&\le0\\
+h_i(w^{\ast})&=0\\
+\alpha^{\ast}_i&\ge 0
 \end{cases}
 $$
 
 Now, let's define a duality gap function between prime problem and its dual problem
 
 $$
-G=f(w^*)-\theta(\alpha^*, \beta^*)\ge 0
+G=f(w^{\ast})-\theta(\alpha^{\ast}, \beta^{\ast})\ge 0
 $$
 
 
@@ -163,19 +162,19 @@ According to the **Strong duality theorem**,
 
 > $f(w)$ is convex function, $g(w)=Aw+b$ and $h(w)=Cw+d$ are linear, then the duality gap of the optimization problem is 0.
 >
-> i.e. with $w^*$ is solution of prime proble, $\alpha^*$ and $\beta^*$ are solutions of dual problem, we have $f(w^*)=\theta(\alpha*, \beta^*)$
+> i.e. with $w^*$ is solution of prime proble, $\alpha^{\ast}$ and $\beta^{\ast}$ are solutions of dual problem, we have $f(w^{\ast})=\theta(\alpha^{\ast}, \beta^{\ast})$
 
 Thereby,
 
 $$
 \begin{align}
-\theta(\alpha^*, \beta^*) &=\underset{\text{all\; w}}{inf}\{L(w, \alpha^*, \beta^*)\}\\
-&\le L(w^*, \alpha^*, \beta^*)\\
-&=f(w^*)+\sum^K_{i=1}\alpha^*_ig_i(w^*)+\sum^M_{i=1}\beta_ih_i(w^*)
+\theta(\alpha^{\ast}, \beta^{\ast}) &=\underset{\text{all\; w}}{inf}\{L(w, \alpha^{\ast}, \beta^{\ast})\}\\
+&\le L(w^{\ast}, \alpha^{\ast}, \beta^{\ast})\\
+&=f(w^{\ast})+\sum^K_{i=1}\alpha^{\ast}_ig_i(w^{\ast})+\sum^M_{i=1}\beta_ih_i(w^{\ast})
 \end{align}
 $$
 
-then for $\forall i = 1...K$, we'll have solution that is either $\alpha^*=0$ or $g^*_i(w^*)=0$. This is called **KKT Theorem**.
+then for $\forall i = 1...K$, we'll have solution that is either $\alpha^{\ast}=0$ or $g^{\ast}_i(w^{\ast})=0$. This is called **KKT Theorem**.
 
 But for the optimization problem we have:
 
