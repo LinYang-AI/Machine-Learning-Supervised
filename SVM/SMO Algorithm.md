@@ -33,7 +33,15 @@ $$
 \end{align*}
 $$
 
-To obtain $\mathcal{L}(\alpha_1, \alpha_2)$ $\iff$$\begin{cases}\frac{\partial\mathcal{L}}{\partial\alpha_1}=0\\ \frac{\partial\mathcal{L}}{\partial\alpha_2}=0\end{cases}$
+To obtain $\mathcal{L}(\alpha_1, \alpha_2)$ $\iff$
+
+$$
+\begin{cases}\displaystyle\frac{\partial\mathcal{L}}{\partial\alpha_1}=0\\ 
+\\
+\displaystyle\frac{\partial\mathcal{L}}{\partial\alpha_2}=0\end{cases}
+$$
+
+
 
 As $\sum^N_{i=1}\alpha_iy_i=0$, i.e. $\alpha_1y_1 + \alpha_2y_2 +\sum^N_{i=3}\alpha_iy_i=0$, where $\sum^N_{i=3}\alpha_iy_i=C$ is a constant, so that
 
