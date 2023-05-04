@@ -131,14 +131,16 @@ where $\underset{\text{all\ w}}{inf}$ means to calculate the minimal for all $w$
 
 Here, we need to introduce a theorem: **if $w^{\*}$ is solution of the prime problem and $\alpha^{\*}$, $\beta^{\*}$ are the solution of dual problem, then we have** $f(w^{\*})\ge\theta(\alpha^{\*}, \beta^{\*})$
 
-$$
+```
+math
 \begin{align*}
 \theta(\alpha^{\*}, \beta^{\*}) &= \underset{\text{all w}}{inf}\{L(w^{\*}, \alpha^{\*}, \beta^{\*})\}\\
 &\le L(w^{\*}, \alpha^{\*}, \beta^{\*})\\
 &= f(w^{\*}) + \sum^K_{i=1}\alpha^{\*}_ig_i(w^{\*})+\sum^M_{i=1}\beta^{\*}_ih_i(w^{\*})\\
 &\le f(w^{\*})
 \end{align*}
-$$
+```
+
 
 From (21) to (22), for $w*$ is prime problem's solution, then the constraints must be satisfied:
 
