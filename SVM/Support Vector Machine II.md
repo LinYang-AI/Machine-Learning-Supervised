@@ -171,14 +171,6 @@ $$
 $$
 
 
-$$
-\begin{align}
-\theta(\alpha^{\ast}, \beta^{\ast}) &=\underset{\text{all\; w}}{inf}\{L(w, \alpha^{\ast}, \beta^{\ast})\}\\
-&\le L(w^{\ast}, \alpha^{\ast}, \beta^{\ast})\\
-&=f(w^{\ast})+\sum_{i=1}^K\alpha^{\ast}_{i}g_{i}(w^{\ast})+\sum_{i=1}^M\beta_{i}h_{i}(w^{\ast})
-\end{align}
-$$
-
 then for $\forall i = 1...K$, we'll have solution that is either $\alpha^{\ast}=0$ or $g^{\ast}_i(w^{\ast})=0$. This is called **KKT Theorem**.
 
 But for the optimization problem we have:
@@ -192,7 +184,7 @@ s.t.\quad &y_i[w^T\varphi(x_i)+b] \ge 1-\xi_i\quad\\
 where\quad i=1...K
 $$
 
-in which the constraintare different: the (27) and (28) inequalities are a '$\ge0$' not '$\le0$' and '$=0$', respectively.
+in which the constraintare different: the (18) and (19) inequalities are a '$\ge0$' not '$\le0$' and '$=0$', respectively.
 
 So we reform the formulars (27) and (28) as:
 
