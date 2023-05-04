@@ -56,26 +56,25 @@ So the function $\mathcal{L}(\alpha_1, \alpha_2)$ becomes:
 
 $$
 \begin{align*}
-\mathcal{L}(\alpha_1, \alpha_2) &= \mathcal{L}(\alpha_2)\\
-&=y_1(C-\alpha_2y_2) - \frac{1}{2}(C-\alpha_2y_2)^2-(C-\alpha_2y_2)\sum^N_{i=3}\alpha_iy_iK_{i1}-\alpha_2(C-\alpha_2y_2)y_2K_{12}\\
-&+\Big[\alpha_2-\frac{1}{2}\alpha_2^2-\alpha_2y_2\sum^N_{i=3}\alpha_iy_iK_{i2}\Big] + C'\\
-&=y_1(C-\alpha_2y_2)+\alpha_2 - \frac{1}{2}\Big[(C-\alpha_2y_2)^2K_{11}+2(C-\alpha_2y_2)\alpha_2y_2K_{12}\\
-&+\alpha^2_2K_{22}+2(C-\alpha_2y_2)\sum^N_{i=3}\alpha_iy_iK_{i1} +2\alpha_2y_2\sum^N_{i=3}\alpha_iy_iK_{i2}+C'\Big]\\
-&=(1-y_1y_2+Cy_2K_{11}-Cy_2K_{12}+y_2\sum^N_{i=3}\alpha_iy_iK_{i2}-y_2\sum^N_{i=3}\alpha_iy_iK_{i2})\\
-&+\alpha_2(-K_{11}+2K_{12}-K_{22})=0\\
+\mathcal{L}(\alpha_{1}, \alpha_{2}) &= \mathcal{L}(\alpha_{2})\\
+&=y_{1}(C-\alpha_{2}y_{2}) - \frac{1}{2}(C-\alpha_{2}y_{2})^2-(C-\alpha_{2}y_{2})\sum^N_{i=3}\alpha_{i}y_{i}K_{i1}-\alpha_{2}(C-\alpha_{2}y_{2})y_{2}K_{12}\\
+&+\Big[\alpha_{2}-\frac{1}{2}\alpha_{2}^2-\alpha_{2}y_{2}\sum^N_{i=3}\alpha_{i}y_{i}K_{i2}\Big] + C'\\
+&=y_{1}(C-\alpha_{2}y_{2})+\alpha_{2} - \frac{1}{2}\Big[(C-\alpha_{2}y_{2})^2K_{11}+2(C-\alpha_{2}y_{2})\alpha_{2}y_{2}K_{12}\\
+&+\alpha^2_{2}K_{22}+2(C-\alpha_{2}y_{2})\sum^N_{i=3}\alpha_{i}y_{i}K_{i1} +2\alpha_{2}y_{2}\sum^N_{i=3}\alpha_{i}y_{i}K_{i2}+C'\Big]\\
+&=(1-y_{1}y_{2}+Cy_{2}K_{11}-Cy_2K_{12}+y_{2}\sum^N_{i=3}\alpha_{i}y_{i}K_{i2}-y_{2}\sum^N_{i=3}\alpha_{i}y_{i}K_{i2})\\
+&+\alpha_{2}(-K_{11}+2K_{12}-K_{22})=0\\
 \\
-\alpha_2(K_{11}-2K_{12}+K_{22})&=1-y_1y_2+y_2K_{11}\sum^N_{i=3}\alpha_iy_i - y_2K_{12}\sum^N_{i=3}\alpha_iy_i+y_2\sum^N_{i=3}\alpha_iy_iK_{i1}-y_2\sum^N_{i=3}\alpha_iy_iK_{i2}\\
-&=y_2(y_2-y_1+K_{11}C-K_{12}C+\sum^N_{i=3}\alpha_iy_iK_{i1}-\sum^N_{i=3}\alpha_iy_iK_{12})
-
+\alpha_{2}(K_{11}-2K_{12}+K_{22})&=1-y_{1}y_{2}+y_{2}K_{11}\sum^N_{i=3}\alpha_{i}y_{i} - y_{2}K_{12}\sum^N_{i=3}\alpha_{i}y_{i}+y_{2}\sum^N_{i=3}\alpha_{i}y_{i}K_{i1}-y_{2}\sum^N_{i=3}\alpha_{i}y_{i}K_{i2}\\
+&=y_{2}(y_{2}-y_{1}+K_{11}C-K_{12}C+\sum^N_{i=3}\alpha_{i}y_{i}K_{i1}-\sum^N_{i=3}\alpha_{i}y_{i}K_{12})
 \end{align*}
 $$
 
-Because $\alpha_1y_1+\alpha_2y_2=C$, or say $\alpha_1^{old}y_1+\alpha_2^{old}y_2=C$, i.e. $\alpha_1^oy_1+\alpha_2^oy_2=C$
+Because $\alpha_{1}y_{1}+\alpha_{2}y_{2}=C$, or say $\alpha_{1}^{old}y_{1}+\alpha_{2}^{old}y_{2}=C$, i.e. $\alpha_{1}^oy_{1}+\alpha_{2}^oy_{2}=C$
 
 so the $\alpha_2$ is updated with the equation above as:
 
 $$
-\alpha^{new}=\alpha^n=\frac{1}{K_{11}-2K_{12}+K_{22}}y_2(y_2-y_1+K_{11}+K(\alpha^o_1y_1 + \alpha^o_2y_2)-K_{12}(\alpha^o_1y_1+\alpha^o_2y_2)+\sum^N_{i=3}\alpha_iy_iK_{i1}-\sum^N_{i=3}\alpha_iy_iK_{i2})
+\alpha^{new}=\alpha^n=\frac{1}{K_{11}-2K_{12}+K_{22}}y_{2}(y_{2}-y_{1}+K_{11}+K(\alpha^o_{1}y_{1} + \alpha^o_{2}y_{2})-K_{12}(\alpha^o_{1}y_{1}+\alpha^o_{2}y_{2})+\sum^N_{i=3}\alpha_{i}y_{i}K_{i1}-\sum^N_{i=3}\alpha_{i}y_{i}K_{i2})
 $$
 
 Remember that in the prime problem we have
