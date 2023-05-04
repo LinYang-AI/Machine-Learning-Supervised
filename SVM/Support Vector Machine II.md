@@ -313,9 +313,9 @@ But how to obtain $b$?
 According to KKT theorem,
 
 $$
-\forall i=1...K,\quad \alpha^*_i = 0\quad or \quad g^*_i(w^*)=0\\\
-\iff \forall i=1...N \quad \beta_i=0\quad or \quad \xi_i=0\;\;\\\
-i.e. \quad \alpha_i=0 \quad or \quad 1+\xi_i-y_iw^T\varphi(x_i)-y_ib=0
+\forall i=1...K,\quad \alpha_{i}^\ast = 0\quad or \quad g_{i}^\ast(w^\ast)=0\\
+\iff \forall i=1...N \quad \beta_{i}=0\quad or \quad \xi_{i}=0\;\;\\
+i.e. \quad \alpha_{i}=0 \quad or \quad 1+\xi_{i}-y_{i}w^T\varphi(x_i)-y_ib=0
 $$
 
 
@@ -359,10 +359,10 @@ $$
 
 With SMO algorithm finding the $\{\alpha_i\}$
 
-To find $b$, take one $0<\alpha_i<C$, then
+To find $b$, take one $0 < \alpha_{i} < C$, then
 
 $$
-b=\frac{1-y_i\sum^N_{j=1}\alpha_jy_jK(x_j,x_i)}{y_i}
+b=\frac{1-y_{i}\sum^N_{j=1}\alpha_{j}y_{j}K(x_{j},x_{i})}{y_{i}}
 $$
 
 ### Step 2: test
