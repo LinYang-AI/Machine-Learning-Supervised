@@ -321,7 +321,11 @@ $$
 i.e. \quad \alpha_i=0 \quad or \quad 1+\xi_i-y_iw^T\varphi(x_i)-y_ib=0
 $$
 
-To find $b$, let take an $\alpha_i$ that is $0<\alpha_i<C$
+To find $b$, let take an $\alpha_i$ that is 
+
+$$
+0<\alpha_i<C
+$$
 
 $$
 \Rightarrow \beta_i=C-\alpha_i >0\;\; (\beta_i \ne 0)\\
