@@ -10,7 +10,7 @@ Linear separable *vs* Non-linear separable
 
 Non-linear separable classes:
 
-![img](../assets/non-linear-separable.png "Non-linear separable classes")
+![img](../assets/non-linear.png "Non-linear separable classes")
 
 Linear separable classes:
 
@@ -56,7 +56,7 @@ $\{(x_i, y_i)\}_{i=1...N}$
 then we have
 
 $$
-\exist (w, b),\; for\;\; \forall i=1...N \\
+U+2203 (w, b),\; for\;\; \forall i=1...N \\
 a.\;\; if\;\; y_i = +1 \Rightarrow w^Tx_i+b \ge 0\\
 b.\;\; if\;\; y_i = -1 \Rightarrow w^Tx_i+b < 0
 $$
