@@ -129,7 +129,7 @@ $$
 
 where $\underset{\text{all\ w}}{inf}$ means to calculate the minimal for all $w$. So the objective function of dual problem is to find the maximal of the minimal $L(w, \alpha, \beta)$ for all $w$ with given $(\alpha, \beta)$.
 
-Here, we need to introduce a theorem: **if $w*$ is solution of the prime problem and $\alpha*$, $\beta*$ are the solution of dual problem, then we have** $f(w^*)\ge\theta(\alpha^*, \beta^*)$
+Here, we need to introduce a theorem: **if $w*$ is solution of the prime problem and $\alpha*$, $\beta*$ are the solution of dual problem, then we have** $f(w^\*)\ge\theta(\alpha^*, \beta^*)$
 
 $$
 \begin{align}
