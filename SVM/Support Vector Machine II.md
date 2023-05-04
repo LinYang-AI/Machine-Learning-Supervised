@@ -282,67 +282,67 @@ Solving this problem will solve the SVM problem.
 
 The algorithm to solve find $\{\alpha_i\}$ is **'[SMO Algorithm](../SVM/SMO Algorithm.md)'**
 
-> NOTE: **Why we only need to know the $K(x_i, x_j)$ and do not need to know the exact form of $\varphi(x_i)$. Knowing we have $\varphi(x_i)$ in the $w$:**
->
-> $$
-> w=\sum^N_{i=1}\alpha_iy_i\varphi(x_i)
-> $$
->
-> EXPLANATION:
->
-> Let say we have test data set $X$, then
->
-> $$
-> \begin{cases}
-> if \quad w^T\varphi(X) + b \ge 0 \Rightarrow y=+1\\
-> if \quad w^T\varphi(X) + b < 0 \Rightarrow y=-1
-> \end{cases}
-> $$
->
-> and
->
-> $$
-> \begin{align}
-> w^T\varphi(X) &= [\sum^N_{i=1}\alpha_iy_i\varphi(x_i)]^T\varphi(x)\\
-> &=\sum^N_{i=1}\alpha_iy_i\varphi(x_i)\varphi(x)\\
-> &=\sum^N_{i=1}\alpha_iy_iK(x_i, x)
-> \end{align}
-> $$
->
-> Thereby, we only need to know the kernel function.
->
-> But how to obtain $b$?
->
-> According to KKT theorem,
->
-> $$
-> \forall i=1...K,\quad \alpha^*_i = 0\quad or \quad g^*_i(w^*)=0\\
-> \iff \forall i=1...N \quad \beta_i=0\quad or \quad \xi_i=0\;\;\\
-> i.e. \quad \alpha_i=0 \quad or \quad 1+\xi_i-y_iw^T\varphi(x_i)-y_ib=0
-> $$
->
-> To find $b$, let take an $\alpha_i$ that is $0<\alpha_i<C$
->
-> $$
-> \Rightarrow \beta_i=C-\alpha_i >0\;\; (\beta_i \ne 0)\\
-> \Rightarrow \xi_i = 0
-> $$
->
-> Since $\alpha_i \ne 0$
->
-> $$
-> \Rightarrow 1 + \xi_i - y_iw^T\varphi(x_i)-y_ib=0
-> $$
->
-> Take $\xi_i=0$ into account
->
-> $$
-> \Rightarrow 1 - y_iw^T\varphi(x_i) - y_ib = 0\quad\quad\quad\quad\quad\quad\quad\\
-> \begin{align}\Rightarrow  b &= \frac{1-y_iw^T\varphi(x_i)}{y_i}\\
-> &=\frac{1-y_i\displaystyle\sum^N_{j=1}\alpha_jy_j(\varphi(x_j))^T\varphi(x_i)}{y_i}\quad\quad\\
-> &=\frac{1-y_i\displaystyle\sum^N_{j=1}\alpha_jy_jK(x_j,x_i)}{y_i}
-> \end{align}
-> $$
+NOTE: **Why we only need to know the $K(x_i, x_j)$ and do not need to know the exact form of $\varphi(x_i)$. Knowing we have $\varphi(x_i)$ in the $w$:**
+
+$$
+w=\sum^N_{i=1}\alpha_iy_i\varphi(x_i)
+$$
+
+EXPLANATION:
+
+Let say we have test data set $X$, then
+
+$$
+\begin{cases}
+if \quad w^T\varphi(X) + b \ge 0 \Rightarrow y=+1\\
+if \quad w^T\varphi(X) + b < 0 \Rightarrow y=-1
+\end{cases}
+$$
+
+and
+
+$$
+\begin{align}
+w^T\varphi(X) &= [\sum^N_{i=1}\alpha_iy_i\varphi(x_i)]^T\varphi(x)\\
+&=\sum^N_{i=1}\alpha_iy_i\varphi(x_i)\varphi(x)\\
+&=\sum^N_{i=1}\alpha_iy_iK(x_i, x)
+\end{align}
+$$
+
+Thereby, we only need to know the kernel function.
+
+But how to obtain $b$?
+
+According to KKT theorem,
+
+$$
+\forall i=1...K,\quad \alpha^*_i = 0\quad or \quad g^*_i(w^*)=0\\
+\iff \forall i=1...N \quad \beta_i=0\quad or \quad \xi_i=0\;\;\\
+i.e. \quad \alpha_i=0 \quad or \quad 1+\xi_i-y_iw^T\varphi(x_i)-y_ib=0
+$$
+
+To find $b$, let take an $\alpha_i$ that is $0<\alpha_i<C$
+
+$$
+\Rightarrow \beta_i=C-\alpha_i >0\;\; (\beta_i \ne 0)\\
+\Rightarrow \xi_i = 0
+$$
+
+Since $\alpha_i \ne 0$
+
+$$
+\Rightarrow 1 + \xi_i - y_iw^T\varphi(x_i)-y_ib=0
+$$
+
+Take $\xi_i=0$ into account
+
+$$
+\Rightarrow 1 - y_iw^T\varphi(x_i) - y_ib = 0\quad\quad\quad\quad\quad\quad\quad\\
+\begin{align}\Rightarrow  b &= \frac{1-y_iw^T\varphi(x_i)}{y_i}\\
+&=\frac{1-y_i\displaystyle\sum^N_{j=1}\alpha_jy_j(\varphi(x_j))^T\varphi(x_i)}{y_i}\quad\quad\\
+&=\frac{1-y_i\displaystyle\sum^N_{j=1}\alpha_jy_jK(x_j,x_i)}{y_i}
+\end{align}
+$$
 
 ## Summary
 
