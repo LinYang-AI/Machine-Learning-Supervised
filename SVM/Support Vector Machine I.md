@@ -118,7 +118,7 @@ $$
 
 To maximize $d$ $\iff$to minimize $||w||$
 
-    Note: why$y_i[w^Tx_i+b]\ge1$?
+Note: why $y_i[w^Tx_i+b]\ge1$?
 
 1. for the support vectors, we have the $d=1$
 2. for the non support vectors, distance $d>1$
