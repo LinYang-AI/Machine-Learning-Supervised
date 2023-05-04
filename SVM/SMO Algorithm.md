@@ -33,22 +33,21 @@ $$
 \end{align*}
 $$
 
-To obtain $\mathcal{L}(\alpha_1, \alpha_2)$ $\iff$
+To obtain $\mathcal{L}(\alpha_1, \alpha_2)$ 
 
 $$
-\begin{cases}\displaystyle\frac{\partial\mathcal{L}}{\partial\alpha_1}=0\\ 
+\iff\begin{cases}\displaystyle\frac{\partial\mathcal{L}}{\partial\alpha_1}=0\\ 
 \\
 \displaystyle\frac{\partial\mathcal{L}}{\partial\alpha_2}=0\end{cases}
 $$
 
 
 
-As $\sum^N_{i=1}\alpha_iy_i=0$, i.e. $\alpha_1y_1 + \alpha_2y_2 +\sum^N_{i=3}\alpha_iy_i=0$, where $\sum^N_{i=3}\alpha_iy_i=C$ is a constant, so that
+As $\displaystyle\sum^N_{i=1}\alpha_iy_i=0$, i.e. $\alpha_1y_1 + \alpha_2y_2 +\displaystyle\sum^N_{i=3}\alpha_iy_i=0$, where $\displaystyle\sum^N_{i=3}\alpha_iy_i=C$ is a constant, so that
 
 $$
-\iff \alpha_1y_1 + \alpha_2y_2 = C\\
-\iff \alpha_1 = y_1(C-\alpha_2y_2)
-
+\iff \alpha_{1}y_{1} + \alpha_{2}y_{2} = C\quad\\
+\iff \alpha_{1} = y_{1}(C-\alpha_{2}y_{2})
 $$
 
 (Note that $y_i^2=1$ for $\forall i=1..N$)
