@@ -132,11 +132,10 @@ where $\underset{\text{all\ w}}{inf}$ means to calculate the minimal for all $w$
 Here, we need to introduce a theorem: **if $w^{\ast}$ is solution of the prime problem and $\alpha^{\ast}$, $\beta^{\ast}$ are the solution of dual problem, then we have** $f(w^{\ast})\ge\theta(\alpha^{\ast}, \beta^{\ast})$
 
 $$
-\\
 \begin{align*}
-\theta(\alpha^{\ast}, \beta^{\ast}) &= \underset{\text{all w}}{inf}\{L(w^{\ast}, \alpha^{\ast}, \beta^{\ast})\}\\
+\theta(\alpha^{\ast}, \beta^{\ast}) &= \underset{\text{all w}}{inf}{L(w^{\ast}, \alpha^{\ast}, \beta^{\ast})}\\
 &\le L(w^{\ast}, \alpha^{\ast}, \beta^{\ast})\\
-&= f(w^{\ast}) + \sum^K_{i=1}\alpha^{\ast}_ig_i(w^{\ast})+\sum^M_{i=1}\beta^{\ast}_ih_i(w^{\ast})\\
+&= f(w^{\ast}) + \sum^K_{i=1}\alpha_{i}^{\ast}g_i(w^{\ast})+\sum^M_{i=1}\beta_{i}^{\ast}h_{i}(w^{\ast})\\
 &\le f(w^{\ast})
 \end{align*}
 $$
