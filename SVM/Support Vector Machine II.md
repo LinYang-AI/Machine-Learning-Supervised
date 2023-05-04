@@ -163,11 +163,12 @@ According to the **Strong duality theorem**,
 Thereby,
 
 $$
-\begin{cases}
-g_i(w^{\ast})&\le0\\
-h_i(w^{\ast})&=0\\
-\alpha^{\ast}_i&\ge 0
-\end{cases}
+\begin{align*}
+\theta(\alpha^{\ast}, \beta^{\ast}) &= \underset{\text{all w}}{inf}{L(w^{\ast}, \alpha^{\ast}, \beta^{\ast})}\\
+&\le L(w^{\ast}, \alpha^{\ast}, \beta^{\ast})\\
+&= f(w^{\ast}) + \sum^K_{i=1}\alpha_{i}^{\ast}g_i(w^{\ast})+\sum^M_{i=1}\beta_{i}^{\ast}h_{i}(w^{\ast})\\
+&\le f(w^{\ast})
+\end{align*
 $$
 
 
