@@ -56,9 +56,9 @@ $\{(x_i, y_i)\}_{i=1...N}$
 then we have
 
 $$
-\exists (w, b),\; for\;\; \forall i=1...N \\
-a.\;\; if\;\; y_i = +1 \Rightarrow w^Tx_i+b \ge 0\\
-b.\;\; if\;\; y_i = -1 \Rightarrow w^Tx_i+b < 0
+\exists (w, b)\quad for\quad \forall i=1...N \\
+a.\quad if\quad y_i = +1 \Rightarrow w^Tx_i+b \ge 0\\
+b.\quad if\quad y_i = -1 \Rightarrow w^Tx_i+b < 0
 $$
 
 or we can simplify it as:
@@ -73,8 +73,8 @@ Now we have the optimization problem: $maximize\;(d)$ which is equivalent to:
 
 $$
 \begin{align}
-&\min\;\;\frac{1}{2}||w||^2\\
-&s.t.\;\; y_i[w^Tx_i+b]\ge1\;\;(i=1...N)
+&\min\quad\frac{1}{2}||w||^2\\
+&s.t.\quad y_i[w^Tx_i+b]\ge1\quad(i=1...N)
 \end{align}
 $$
 
@@ -133,8 +133,3 @@ $$
 \iff & y_i[w^Tx_i+b] \ge 1
 \end{align}
 $$
-
-
-
-
-* *this is bottom*

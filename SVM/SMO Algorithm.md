@@ -6,9 +6,9 @@ We have a dual problem, for $\forall i=1...N$
 
 $$
 \begin{align}
-maximize\;\; &\sum^N_{i=1}\alpha_i - \frac{1}{2}\sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_j\varphi(x_i)^T\varphi(x_j)\;\;\;\;\;\;\\
-(maximize\;\; &\sum^N_{i=1}\alpha_i - \frac{1}{2}\sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_jK(x_i,x_j))\\
-s.t.\;\; &0\le \alpha_i \le c\\
+maximize\quad &\sum^N_{i=1}\alpha_i - \frac{1}{2}\sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_j\varphi(x_i)^T\varphi(x_j)\quad\quad\\
+(maximize\quad &\sum^N_{i=1}\alpha_i - \frac{1}{2}\sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_jK(x_i,x_j))\\
+s.t.\quad &0\le \alpha_i \le c\\
 &\sum^N_{i=1}\alpha_iy_i = 0
 \end{align}\\
 $$
@@ -75,7 +75,7 @@ Remember that in the prime problem we have
 
 $$
 L(w) = \sum^N_{i=1}\alpha_i -\frac{1}{2}\sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_jK(x_i,x_j)\\
-where\;\; \frac{\partial L}{\partial w}=0 \Rightarrow w=\sum^N_{i=1}\alpha_iy_ix_i
+where\quad \frac{\partial L}{\partial w}=0 \Rightarrow w=\sum^N_{i=1}\alpha_iy_ix_i
 $$
 
 so the hyperplane

@@ -5,10 +5,10 @@
 Prime problem:
 
 $$
-minimize\;\; \frac{1}{2}||w||^2+C\sum_{i=1}^N \xi_i\;\; (i=1...N)\\
-s.t.\;\;\begin{align} y_i[w^Tx_i+b]\ge 1-\xi_i\;\;\; \\
-\xi_i \ge 0\;\;\;\;\;\;\;\;\;\;
-\end{align}
+minimize\quad \frac{1}{2}||w||^2+C\sum_{i=1}^N \xi_i\quad (i=1...N)\\
+\begin{align*}s.t. \quad y_i[w^Tx_i+b]\ge 1-\xi_i\quad \\
+\xi_i \ge 0\quad\quad\quad
+\end{align*}
 $$
 
 where $\xi_i$ is slack variable and $\displaystyle C\sum_{i=1}^N\xi_i$ is regulation termn with pre-set parameter $C$ to balance the weights of $w$ and $\xi_i$
@@ -85,8 +85,8 @@ The the optimization problem now can be written as
 
 $$
 \begin{align}
-minimize\;\;\; &\frac{1}{2}||w||^2 + C\sum_{i=1}^N\xi_i\\
-s.t.\;\;\; &y_i[w^T\varphi(x_i)+b]\ge 1-\xi_i\;\;\;\;\;\\
+minimize\quad &\frac{1}{2}||w||^2 + C\sum_{i=1}^N\xi_i\\
+s.t.\quad &y_i[w^T\varphi(x_i)+b]\ge 1-\xi_i\quad\\
 &\xi_i \ge 0\\
 \end{align}\\
 K(x_i, x_j)=\varphi(x_i)^T\varphi(x_j)
@@ -101,9 +101,9 @@ If we have the prime problem as:
 
 $$
 \begin{align}
-minimize\;\;\; &f(w)\\
-s.t.\;\;\; &g_i(w)\le 0\;\;(i=1...K)\\
-&h_i(w)=0\;\;(i=1...M)
+minimize\quad &f(w)\\
+s.t.\quad &g_i(w)\le 0\quad(i=1...K)\\
+&h_i(w)=0\quad(i=1...M)
 \end{align}
 $$
 
@@ -120,8 +120,8 @@ Then its dual problem is
 
 $$
 \begin{align}
-Maximize\;\;\; \theta(\alpha, \beta) &= \underset{\text{all\;w}}{inf}\{L(w, \alpha, \beta)\}\\
-s.t.\;\; \alpha_i &\ge 0\;\;(i=1...K)\\
+Maximize\quad \theta(\alpha, \beta) &= \underset{\text{all\;w}}{inf}\{L(w, \alpha, \beta)\}\\
+s.t.\quad \alpha_i &\ge 0\quad(i=1...K)\\
 \end{align}\\
 (\bold{\alpha}\ge0)
 $$
@@ -132,7 +132,7 @@ Here, we need to introduce a theorem: **if $w*$ is solution of the prime problem
 
 $$
 \begin{align}
-\theta(\alpha^*, \beta^*) &= \underset{\text{all\; w}}{inf}\{L(w^*, \alpha^*, \beta^*)\}\\
+\theta(\alpha^*, \beta^*) &= \underset{\text{all w}}{inf}\{L(w^*, \alpha^*, \beta^*)\}\\
 &\le L(w^*, \alpha^*, \beta^*)\\
 &= f(w^*) + \sum^K_{i=1}\alpha^*_ig_i(w^*)+\sum^M_{i=1}\beta^*_ih_i(w^*)\\
 &\le f(w^*)
@@ -178,11 +178,11 @@ But for the optimization problem we have:
 
 $$
 \begin{align}
-minimize\;\;\; &\frac{1}{2}||w||^2 +C\sum^N_{i=1}\xi_i\\
-s.t.\;\;\; &y_i[w^T\varphi(x_i)+b] \ge 1-\xi_i\;\;\;\;\;\;\\
+minimize\quad &\frac{1}{2}||w||^2 +C\sum^N_{i=1}\xi_i\\
+s.t.\quad &y_i[w^T\varphi(x_i)+b] \ge 1-\xi_i\quad\\
 &\xi_i\ge 0
 \end{align}\\
-where\;\;\;i=1...K
+where\quad i=1...K
 $$
 
 in which the constraintare different: the (27) and (28) inequalities are a '$\ge0$' not '$\le0$' and '$=0$', respectively.
@@ -200,8 +200,8 @@ Thus, the dual problem is
 
 $$
 \begin{align}
-maximize\;\;\; &\theta(\alpha, \beta )= \underset{{all\;(w,\xi_i,b)}}{inf}\{\frac{1}{2}||w||^2-C\sum^N_{i=1}{\xi_i} + \sum^N_{i=1}\beta_i\xi_i + \sum^N_{i=1}\alpha_i[1+\xi_i-y_iw\varphi(x_i)-y_ib]\}\\
-s.t.\;\;\; &\alpha_i\ge0\\
+maximize\quad &\theta(\alpha, \beta )= \underset{{all(w,\xi_i,b)}}{inf}\{\frac{1}{2}||w||^2-C\sum^N_{i=1}{\xi_i} + \sum^N_{i=1}\beta_i\xi_i + \sum^N_{i=1}\alpha_i[1+\xi_i-y_iw\varphi(x_i)-y_ib]\}\\
+s.t.\quad &\alpha_i\ge0\\
 &\beta_i\ge 0
 \end{align}
 $$
@@ -243,7 +243,7 @@ $$
 Plugin back to the objective function $\theta(\alpha, \beta)$
 
 $$
-\theta(\alpha, \beta) = \underset{all\; (w, \alpha, \beta)}{inf}\{\frac{1}{2}||w||^2 - C\sum^N_{i=1}\xi_i + \sum^N_{i=1}\beta_i\xi_i + \sum^N_{i=1}\alpha_i[1+\xi_i - y_iw^T\varphi(x_i) -y_ib]\}
+\theta(\alpha, \beta) = \underset{all (w, \alpha, \beta)}{inf}\{\frac{1}{2}||w||^2 - C\sum^N_{i=1}\xi_i + \sum^N_{i=1}\beta_i\xi_i + \sum^N_{i=1}\alpha_i[1+\xi_i - y_iw^T\varphi(x_i) -y_ib]\}
 $$
 
 let $C=\beta_i + \alpha_i$, we can cancel the terms that have $\xi_i$. for the $||w||^2$ we have
@@ -270,7 +270,7 @@ $$
 so that
 
 $$
-\theta(\alpha, \beta) = \sum^N_{i=1}\alpha_i - \frac{1}{2}\sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_j\varphi(x_i)^T\varphi(x_j)\;\;\;\;\;\;\;\\
+\theta(\alpha, \beta) = \sum^N_{i=1}\alpha_i - \frac{1}{2}\sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_j\varphi(x_i)^T\varphi(x_j)\quad\quad\\
 =\sum^N_{i=1}\alpha_i - \frac{1}{2}\sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_jK(x_i, x_j)
 $$
 
@@ -278,8 +278,8 @@ Then the dual problem becomes:
 
 $$
 \begin{align}
-Maximize\;\;\; &\theta(\alpha, \beta) = \sum^N_{i=1}\alpha_i - \frac{1}{2}\sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_jK(x_i, x_j)\\
-s.t. \;\;\; &0\le \alpha_i \le C\\
+Maximize\quad &\theta(\alpha, \beta) = \sum^N_{i=1}\alpha_i - \frac{1}{2}\sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_jK(x_i, x_j)\\
+s.t. \quad &0\le \alpha_i \le C\\
 &\sum^N_{i=1}\alpha_iy_i=0
 \end{align}
 $$
@@ -301,8 +301,8 @@ The algorithm to solve find $\{\alpha_i\}$ is **'[SMO Algorithm](../SVM/SMO Algo
 >
 > $$
 > \begin{cases}
-> if \;\;\; w^T\varphi(X) + b \ge 0 \Rightarrow y=+1\\
-> if \;\;\; w^T\varphi(X) + b < 0 \Rightarrow y=-1
+> if \quad w^T\varphi(X) + b \ge 0 \Rightarrow y=+1\\
+> if \quad w^T\varphi(X) + b < 0 \Rightarrow y=-1
 > \end{cases}
 > $$
 >
@@ -323,9 +323,9 @@ The algorithm to solve find $\{\alpha_i\}$ is **'[SMO Algorithm](../SVM/SMO Algo
 > According to KKT theorem,
 >
 > $$
-> \forall i=1...K,\;\; \alpha^*_i = 0\;\; or \;\; g^*_i(w^*)=0\\
-> \iff \forall i=1...N,\;\; \beta_i=0\;\; or \;\; \xi_i=0\;\;\\
-> i.e. \;\; \alpha_i=0 \;\; or \;\; 1+\xi_i-y_iw^T\varphi(x_i)-y_ib=0
+> \forall i=1...K,\quad \alpha^*_i = 0\quad or \quad g^*_i(w^*)=0\\
+> \iff \forall i=1...N \quad \beta_i=0\quad or \quad \xi_i=0\;\;\\
+> i.e. \quad \alpha_i=0 \quad or \quad 1+\xi_i-y_iw^T\varphi(x_i)-y_ib=0
 > $$
 >
 > To find $b$, let take an $\alpha_i$ that is $0<\alpha_i<C$
@@ -344,9 +344,9 @@ The algorithm to solve find $\{\alpha_i\}$ is **'[SMO Algorithm](../SVM/SMO Algo
 > Take $\xi_i=0$ into account
 >
 > $$
-> \Rightarrow 1 - y_iw^T\varphi(x_i) - y_ib = 0\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\\
-> \begin{align}\Rightarrow  b &= \frac{1-y_iw^T\varphi(x_i)}{y_i}\;\;\;\;\;\;\;\\
-> &=\frac{1-y_i\displaystyle\sum^N_{j=1}\alpha_jy_j(\varphi(x_j))^T\varphi(x_i)}{y_i}\;\;\;\;\;\\
+> \Rightarrow 1 - y_iw^T\varphi(x_i) - y_ib = 0\quad\quad\quad\quad\quad\quad\quad\\
+> \begin{align}\Rightarrow  b &= \frac{1-y_iw^T\varphi(x_i)}{y_i}\\
+> &=\frac{1-y_i\displaystyle\sum^N_{j=1}\alpha_jy_j(\varphi(x_j))^T\varphi(x_i)}{y_i}\quad\quad\\
 > &=\frac{1-y_i\displaystyle\sum^N_{j=1}\alpha_jy_jK(x_j,x_i)}{y_i}
 > \end{align}
 > $$
@@ -361,8 +361,8 @@ Input training data set $\{(x_i, y_i)\}_{i=1...N}$, with optimization problem:
 
 $$
 \begin{align}
-maximize\;\;\; &\theta(\alpha)=\sum^N_{i=1}\alpha_i - \frac{1}{2}\sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_jK(x_i, x_j)\\
-s.t.\;\;\; &0\le \alpha_i\le C\\
+maximize\quad &\theta(\alpha)=\sum^N_{i=1}\alpha_i - \frac{1}{2}\sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_jK(x_i, x_j)\\
+s.t. \quad &0\le \alpha_i\le C\\
 &\sum^N_{i=1}\alpha_iy_i=0
 \end{align}
 $$
@@ -381,7 +381,7 @@ Input test data set $\{x\}$
 
 $$
 \begin{cases}
-if\;\; \sum^N_{i=1}\alpha_iy_iK(x_i,x)+b\ge 0,\;\; then\;\; y=+1\\
-if\;\; \sum^N_{i=1}\alpha_iy_iK(x_i,x)+b<0,\;\; then\;\; y=-1
+if\quad \sum^N_{i=1}\alpha_iy_iK(x_i,x)+b\ge 0, \quad then \quad y=+1\\
+if\quad \sum^N_{i=1}\alpha_iy_iK(x_i,x)+b<0, \quad then \quad y=-1
 \end{cases}
 $$
