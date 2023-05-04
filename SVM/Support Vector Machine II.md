@@ -318,8 +318,6 @@ $$
 i.e. \quad \alpha_{i}=0 \quad or \quad 1+\xi_{i}-y_{i}w^T\varphi(x_i)-y_ib=0
 $$
 
-
-
 To find $b$, let take an $\alpha_i$ that is $0 < \alpha_{i} < C$
 
 $$
@@ -362,7 +360,7 @@ With SMO algorithm finding the $\{\alpha_i\}$
 To find $b$, take one $0 < \alpha_{i} < C$, then
 
 $$
-b=\frac{1-y_{i}\sum^N_{j=1}\alpha_{j}y_{j}K(x_{j},x_{i})}{y_{i}}
+b=\frac{1-y_{i}\displaystyle\sum^N_{j=1}\alpha_{j}y_{j}K(x_{j},x_{i})}{y_{i}}
 $$
 
 ### Step 2: test
@@ -371,7 +369,8 @@ Input test data set $\{x\}$
 
 $$
 \begin{cases}
-if\quad \sum^N_{i=1}\alpha_iy_iK(x_i,x)+b\ge 0, \quad then \quad y=+1\\
-if\quad \sum^N_{i=1}\alpha_iy_iK(x_i,x)+b<0, \quad then \quad y=-1
+if\quad \displaystyle\sum^N_{i=1}\alpha_iy_iK(x_i,x)+b\ge 0, \quad then \quad y=+1\\
+\\
+if\quad \displaystyle\sum^N_{i=1}\alpha_iy_iK(x_i,x)+b<0, \quad then \quad y=-1
 \end{cases}
 $$
