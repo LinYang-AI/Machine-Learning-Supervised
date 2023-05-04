@@ -313,8 +313,8 @@ But how to obtain $b$?
 According to KKT theorem,
 
 $$
-\forall i=1...K,\quad \alpha^*_i = 0\quad or \quad g^*_i(w^*)=0\\
-\iff \forall i=1...N \quad \beta_i=0\quad or \quad \xi_i=0\;\;\\
+\forall i=1...K,\quad \alpha^*_i = 0\quad or \quad g^*_i(w^*)=0\\\
+\iff \forall i=1...N \quad \beta_i=0\quad or \quad \xi_i=0\;\;\\\
 i.e. \quad \alpha_i=0 \quad or \quad 1+\xi_i-y_iw^T\varphi(x_i)-y_ib=0
 $$
 
