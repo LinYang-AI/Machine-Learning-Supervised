@@ -64,10 +64,9 @@ $$
 or we can simplify it as:
 
 $$
-\begin{align}
+\begin{align*}
 &y_i[w^Tx_i + b]\ge0
-
-\end{align}
+\end{align*}
 $$
 
 Now we have the optimization problem: $maximize\;(d)$ which is equivalent to:
