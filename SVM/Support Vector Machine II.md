@@ -216,10 +216,7 @@ $$
 \displaystyle\frac{\partial L}{\partial \xi_i} = 0\\
 \\\
 \displaystyle\frac{\partial L}{\partial b} =0
-\end{cases}
-
-\iff
-
+\end{cases}\iff
 \begin{cases}
 \displaystyle\frac{\partial L}{\partial w} = w-\sum^N_{i=1}\alpha_iy_i\varphi(x_i)=0\\
 \\
@@ -227,9 +224,7 @@ $$
 \\
 \displaystyle\frac{\partial L}{\partial b} = \sum^N_{i=1}\alpha_i y_i=0
 \end{cases}
-
 \iff
-
 \begin{cases}
 \displaystyle w=\sum^N_{i=1}\alpha_iy_i\varphi(x_i)\\
 \\
