@@ -134,9 +134,9 @@ Here, we need to introduce a theorem: **if $w^{\*}$ is solution of the prime pro
 $$
 \begin{align*}
 \theta(\alpha^{\*}, \beta^{\*}) &= \underset{\text{all w}}{inf}\{L(w^{\*}, \alpha^{\*}, \beta^{\*})\}\\
-&\le L(w^{*}, \alpha^{*}, \beta^{*})\\
-&= f(w^{*}) + \sum^K_{i=1}\alpha^*_ig_i(w^*)+\sum^M_{i=1}\beta^*_ih_i(w^*)\\
-&\le f(w^*)
+&\le L(w^{\*}, \alpha^{\*}, \beta^{\*})\\
+&= f(w^{\*}) + \sum^K_{i=1}\alpha^{\*}_ig_i(w^{\*})+\sum^M_{i=1}\beta^{\*}_ih_i(w^{\*})\\
+&\le f(w^{\*})
 \end{align*}
 $$
 
