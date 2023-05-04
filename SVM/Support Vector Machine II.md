@@ -158,6 +158,8 @@ According to the **Strong duality theorem**,
 >
 > i.e. with $w^*$ is solution of prime proble, $\alpha^{\ast}$ and $\beta^{\ast}$ are solutions of dual problem, we have $f(w^{\ast})=\theta(\alpha^{\ast}, \beta^{\ast})$
 
+
+
 Thereby,
 
 $$
