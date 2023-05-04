@@ -1,0 +1,387 @@
+# Support Vector Machine II for Non-linear Classification
+
+## Optimization problem
+
+Prime problem:
+
+$$
+minimize\;\; \frac{1}{2}||w||^2+C\sum_{i=1}^N \xi_i\;\; (i=1...N)\\
+s.t.\;\;\begin{align} y_i[w^Tx_i+b]\ge 1-\xi_i\;\;\; \\
+\xi_i \ge 0\;\;\;\;\;\;\;\;\;\;
+\end{align}
+$$
+
+where $\xi_i$ is slack variable and $\displaystyle C\sum_{i=1}^N\xi_i$ is regulation termn with pre-set parameter $C$ to balance the weights of $w$ and $\xi_i$
+
+Note: for large enough $\xi_i$, constraint (1) will always be satisfied but the optimization will be divergent. To avoid it, we add term $\displaystyle C\sum_{i=1}^N\xi_i$ in the objective function so that $\xi_i$ are restricted to not too large value.
+
+As seen in the figure bellow, the non-linear separable classes cannot be discriminated by a linear hyperplane.
+
+![non-linear-separable](../assets/non-linear-separable.png)
+
+To resolve the non-linear separable problem we project the vector to a higher dimension
+
+$$
+X\xrightarrow{\varphi} \varphi(X)
+$$
+
+Now the question is which $\varphi$ should we choos?
+
+$\varphi(x)$ is of infinite dimension, and **we dont need to know the exact form of $\varphi(x)$**, we only need to know a kernel function:
+
+$$
+K(x_1, x_2) = \varphi(x_1)^T\varphi(x_2)
+$$
+
+then the optimization problem is solvalble.
+
+
+## Kernel Function
+
+Common used kernel functions:
+
+**Gaussian kernel function**
+
+$$
+\begin{align}
+K(x_1, x_2)&=e^{\frac{||x_1-x_2||^2}{2\sigma^2}}\\
+&=\varphi(x_1)^T\varphi(x_2)
+\end{align}
+$$
+
+where $\varphi(x)$ is of infinite dimension
+
+**Polynormial kernel function**
+
+$$
+\begin{align}
+K(x_1)(x_2) &=(x_1^Tx_2+1)^d\\
+&=\varphi(x_1)^T\varphi(x_2)
+\end{align}
+$$
+
+where $\varphi(x)$ has definite dimension
+
+
+However, the kernel function $K(x_1, x_2)$ must satisfy certain constraint so that $K(x_1, x_2)=\varphi(x_1)^T\varphi(x_2)$
+
+The necessary and sufficient condition is:
+
+Mercer's Theorem
+
+for $\forall C_i, x_i\;\;(i=1...N)$ we have
+
+$$
+\begin{align}
+&K(x_1, x_2)=K(x_2, x_1)\\
+&\sum_{i=1}^N\sum_{j=1}^NC_iC_jK(x_i, x_j)\ge 0
+\end{align}
+$$
+
+
+(where the second condition is called **positive semi-definiteness)**
+
+The the optimization problem now can be written as
+
+$$
+\begin{align}
+minimize\;\;\; &\frac{1}{2}||w||^2 + C\sum_{i=1}^N\xi_i\\
+s.t.\;\;\; &y_i[w^T\varphi(x_i)+b]\ge 1-\xi_i\;\;\;\;\;\\
+&\xi_i \ge 0\\
+\end{align}\\
+K(x_i, x_j)=\varphi(x_i)^T\varphi(x_j)
+$$
+
+with $i=1...N$ and we know $K(x_i, x_j)$ but do not know $\varphi(x)$
+
+
+To solve this problem, we need to review the **prime problem** and the **dual problem**.
+
+If we have the prime problem as:
+
+$$
+\begin{align}
+minimize\;\;\; &f(w)\\
+s.t.\;\;\; &g_i(w)\le 0\;\;(i=1...K)\\
+&h_i(w)=0\;\;(i=1...M)
+\end{align}
+$$
+
+we can set (Lagrangian)
+
+$$
+\begin{align}
+L(w, \alpha, \beta) &= f(w)+\sum^K_{i=1}\alpha_ig_i(w) + \sum^M_{i=1}\beta_ih_i(w)\\
+L(w,\alpha, \beta) &=f(w)+\alpha^Tg(w)+\beta^Th(w)
+\end{align}
+$$
+
+Then its dual problem is
+
+$$
+\begin{align}
+Maximize\;\;\; \theta(\alpha, \beta) &= \underset{\text{all\;w}}{inf}\{L(w, \alpha, \beta)\}\\
+s.t.\;\; \alpha_i &\ge 0\;\;(i=1...K)\\
+\end{align}\\
+(\bold{\alpha}\ge0)
+$$
+
+where $\underset{\text{all\;w}}{inf}$ means to calculate the minimal for all $w$. So the objective function of dual problem is to find the maximal of the minimal $L(w, \alpha, \beta)$ for all $w$ with given $(\alpha, \beta)$.
+
+Here, we need to introduce a theorem: **if $w*$ is solution of the prime problem and $\alpha*$, $\beta*$ are the solution of dual problem, then we have $f(w^*)\ge\theta(\alpha^*, \beta^*)$**
+
+$$
+\begin{align}
+\theta(\alpha^*, \beta^*) &= \underset{\text{all\; w}}{inf}\{L(w^*, \alpha^*, \beta^*)\}\\
+&\le L(w^*, \alpha^*, \beta^*)\\
+&= f(w^*) + \sum^K_{i=1}\alpha^*_ig_i(w^*)+\sum^M_{i=1}\beta^*_ih_i(w^*)\\
+&\le f(w^*)
+\end{align}
+$$
+
+From (21) to (22), for $w*$ is prime problem's solution, then the constraints must be satisfied:
+
+$$
+\begin{cases}
+g_i(w^*)&\le0\\
+h_i(w^*)&=0\\
+\alpha^*_i&\ge 0
+\end{cases}
+$$
+
+Now, let's define a duality gap function between prime problem and its dual problem
+
+$$
+G=f(w^*)-\theta(\alpha^*, \beta^*)\ge 0
+$$
+
+
+According to the **Strong duality theorem**,
+
+> $f(w)$ is convex function, $g(w)=Aw+b$ and $h(w)=Cw+d$ are linear, then the duality gap of the optimization problem is 0.
+>
+> i.e. with $w^*$ is solution of prime proble, $\alpha^*$ and $\beta^*$ are solutions of dual problem, we have $f(w^*)=\theta(\alpha*, \beta^*)$
+
+Thereby,
+
+$$
+\begin{align}
+\theta(\alpha^*, \beta^*) &=\underset{\text{all\; w}}{inf}\{L(w, \alpha^*, \beta^*)\}\\
+&\le L(w^*, \alpha^*, \beta^*)\\
+&=f(w^*)+\sum^K_{i=1}\alpha^*_ig_i(w^*)+\sum^M_{i=1}\beta_ih_i(w^*)
+\end{align}
+$$
+
+then for $\forall i = 1...K$, we'll have solution that is either $\alpha^*=0$ or $g^*_i(w^*)=0$. This is called **KKT Theorem**.
+
+But for the optimization problem we have:
+
+$$
+\begin{align}
+minimize\;\;\; &\frac{1}{2}||w||^2 +C\sum^N_{i=1}\xi_i\\
+s.t.\;\;\; &y_i[w^T\varphi(x_i)+b] \ge 1-\xi_i\;\;\;\;\;\;\\
+&\xi_i\ge 0
+\end{align}\\
+where\;\;\;i=1...K
+$$
+
+in which the constraintare different: the (27) and (28) inequalities are a '$\ge0$' not '$\le0$' and '$=0$', respectively.
+
+So we reform the formulars (27) and (28) as:
+
+$$
+1+\xi_i -y_iw^T\varphi(x_i)-y_ib\le0\\
+\xi_i\le0
+$$
+
+here we set the $\xi_i$ to $-\xi_i$.
+
+Thus, the dual problem is
+
+$$
+\begin{align}
+maximize\;\;\; &\theta(\alpha, \beta )= \underset{{all\;(w,\xi_i,b)}}{inf}\{\frac{1}{2}||w||^2-C\sum^N_{i=1}{\xi_i} + \sum^N_{i=1}\beta_i\xi_i + \sum^N_{i=1}\alpha_i[1+\xi_i-y_iw\varphi(x_i)-y_ib]\}\\
+s.t.\;\;\; &\alpha_i\ge0\\
+&\beta_i\ge 0
+\end{align}
+$$
+
+Note: in the objective function, the term $\frac{1}{2}||w||^2-C\sum^N_{i=1}\xi_i$ corresponds to $f(w)$, the rest part corresponds to $g_i(w)$. The $\beta_i$ and $\alpha_i$ in the objective function correspond to the $\alpha_i$ that is in the equation (14). And the $w$ of $f(w)$ in (12) corresponds to $(w,\xi_i, b) $ here in (29).
+
+According to KKT theorem
+
+$$
+\begin{cases}
+\displaystyle\frac{\partial L}{\partial w}=0\\
+\\
+\displaystyle\frac{\partial L}{\partial \xi_i} = 0\\
+\\\
+\displaystyle\frac{\partial L}{\partial b} =0
+\end{cases}
+
+\iff
+
+\begin{cases}
+\displaystyle\frac{\partial L}{\partial w} = w-\sum^N_{i=1}\alpha_iy_i\varphi(x_i)=0\\
+\\
+\displaystyle\frac{\partial L}{\partial \xi_i} = -C + \beta_i + \alpha_i = 0\\
+\\
+\displaystyle\frac{\partial L}{\partial b} = \sum^N_{i=1}\alpha_i y_i=0
+\end{cases}
+
+\iff
+
+\begin{cases}
+\displaystyle w=\sum^N_{i=1}\alpha_iy_i\varphi(x_i)\\
+\\
+\displaystyle \alpha_i + \beta_i = C\\
+\\
+\displaystyle \sum^N_{i=1}\alpha_i y_i = 0
+\end{cases}
+$$
+
+Plugin back to the objective function $\theta(\alpha, \beta)$
+
+$$
+\theta(\alpha, \beta) = \underset{all\; (w, \alpha, \beta)}{inf}\{\frac{1}{2}||w||^2 - C\sum^N_{i=1}\xi_i + \sum^N_{i=1}\beta_i\xi_i + \sum^N_{i=1}\alpha_i[1+\xi_i - y_iw^T\varphi(x_i) -y_ib]\}
+$$
+
+let $C=\beta_i + \alpha_i$, we can cancel the terms that have $\xi_i$. for the $||w||^2$ we have
+
+$$
+\begin{align}
+\frac{1}{2}||w||^2 &= \frac{1}{2}w^Tw\\
+&=\frac{1}{2}(\sum^N_{i=1}\alpha_iy_i\varphi(x_i))^T(\sum^N_{j=1}\alpha_jy_j\varphi_j(x_j))\\
+&=\frac{1}{2}\sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_j\varphi(x_i)^T\varphi(x_j)\\
+&= K(x_i, x_j)
+\end{align}
+$$
+
+for the $\displaystyle-\sum^N_{i=1}\alpha_iy_iw^T\varphi(x_i)$, we have
+
+$$
+\begin{align}
+-\sum^N_{i=1}\alpha_iy_iw^T\varphi(x_i) &= -\sum^N_{i=1}\alpha_iy_i(\sum^N_{j=1}\alpha_jy_j\varphi(x_j))^T\varphi(x_i)\\
+&= -\sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_j\varphi(x_j)^T\varphi(x_i)\\
+&=K(x_j, x_i) = K(x_i, x_j)
+\end{align}
+$$
+
+so that
+
+$$
+\theta(\alpha, \beta) = \sum^N_{i=1}\alpha_i - \frac{1}{2}\sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_j\varphi(x_i)^T\varphi(x_j)\;\;\;\;\;\;\;\\
+=\sum^N_{i=1}\alpha_i - \frac{1}{2}\sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_jK(x_i, x_j)
+$$
+
+Then the dual problem becomes:
+
+$$
+\begin{align}
+Maximize\;\;\; &\theta(\alpha, \beta) = \sum^N_{i=1}\alpha_i - \frac{1}{2}\sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_jK(x_i, x_j)\\
+s.t. \;\;\; &0\le \alpha_i \le C\\
+&\sum^N_{i=1}\alpha_iy_i=0
+\end{align}
+$$
+
+Solving this problem will solve the SVM problem.
+
+The algorithm to solve find $\{\alpha_i\}$ is **'[SMO Algorithm](../SVM/SMO Algorithm.md)'**
+
+
+> NOTE: **Why we only need to know the $K(x_i, x_j)$ and do not need to know the exact form of $\varphi(x_i)$. Knowing we have $\varphi(x_i)$ in the $w$:**
+>
+> $$
+> w=\sum^N_{i=1}\alpha_iy_i\varphi(x_i)
+> $$
+>
+> EXPLANATION:
+>
+> Let say we have test data set $X$, then 
+>
+> $$
+> \begin{cases}
+> if \;\;\; w^T\varphi(X) + b \ge 0 \Rightarrow y=+1\\
+> if \;\;\; w^T\varphi(X) + b < 0 \Rightarrow y=-1
+> \end{cases}
+> $$
+>
+> and
+>
+> $$
+> \begin{align}
+> w^T\varphi(X) &= [\sum^N_{i=1}\alpha_iy_i\varphi(x_i)]^T\varphi(x)\\
+> &=\sum^N_{i=1}\alpha_iy_i\varphi(x_i)\varphi(x)\\
+> &=\sum^N_{i=1}\alpha_iy_iK(x_i, x)
+> \end{align}
+> $$
+>
+> Thereby, we only need to know the kernel function.
+>
+> But how to obtain $b$?
+>
+> According to KKT theorem,
+>
+> $$
+> \forall i=1...K,\;\; \alpha^*_i = 0\;\; or \;\; g^*_i(w^*)=0\\
+> \iff \forall i=1...N,\;\; \beta_i=0\;\; or \;\; \xi_i=0\;\;\\
+> i.e. \;\; \alpha_i=0 \;\; or \;\; 1+\xi_i-y_iw^T\varphi(x_i)-y_ib=0
+> $$
+>
+> To find $b$, let take an $\alpha_i$ that is $0<\alpha_i<C$
+>
+> $$
+> \Rightarrow \beta_i=C-\alpha_i >0\;\; (\beta_i \ne 0)\\
+> \Rightarrow \xi_i = 0
+> $$
+>
+> Since $\alpha_i \ne 0$
+>
+> $$
+> \Rightarrow 1 + \xi_i - y_iw^T\varphi(x_i)-y_ib=0
+> $$
+>
+> Take $\xi_i=0$ into account
+>
+> $$
+> \Rightarrow 1 - y_iw^T\varphi(x_i) - y_ib = 0\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\\
+> \begin{align}\Rightarrow  b &= \frac{1-y_iw^T\varphi(x_i)}{y_i}\;\;\;\;\;\;\;\\
+> &=\frac{1-y_i\displaystyle\sum^N_{j=1}\alpha_jy_j(\varphi(x_j))^T\varphi(x_i)}{y_i}\;\;\;\;\;\\
+> &=\frac{1-y_i\displaystyle\sum^N_{j=1}\alpha_jy_jK(x_j,x_i)}{y_i}
+> \end{align}
+> $$
+
+
+
+## Summary
+
+### Step 1: training
+
+Input training data set $\{(x_i, y_i)\}_{i=1...N}$, with optimization problem:
+
+$$
+\begin{align}
+maximize\;\;\; &\theta(\alpha)=\sum^N_{i=1}\alpha_i - \frac{1}{2}\sum^N_{i=1}\sum^N_{j=1}\alpha_i\alpha_jy_iy_jK(x_i, x_j)\\
+s.t.\;\;\; &0\le \alpha_i\le C\\
+&\sum^N_{i=1}\alpha_iy_i=0
+\end{align}
+$$
+
+With SMO algorithm finding the $\{\alpha_i\}$
+
+To find $b$, take one $0<\alpha_i<C$, then
+
+$$
+b=\frac{1-y_i\sum^N_{j=1}\alpha_jy_jK(x_j,x_i)}{y_i}
+$$
+
+### Step 2: test
+
+Input test data set $\{x\}$
+
+$$
+\begin{cases}
+if\;\; \sum^N_{i=1}\alpha_iy_iK(x_i,x)+b\ge 0,\;\; then\;\; y=+1\\
+if\;\; \sum^N_{i=1}\alpha_iy_iK(x_i,x)+b<0,\;\; then\;\; y=-1
+\end{cases}
+$$
