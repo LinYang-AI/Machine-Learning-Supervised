@@ -6,12 +6,10 @@ Prime problem:
 
 $$
 minimize\quad \frac{1}{2}||w||^2+C\sum_{i=1}^N \xi_i\quad (i=1...N)\\
-\begin{align*}s.t. \quad y_i[w^Tx_i+b]\ge 1-\xi_i\quad \\
-\xi_i \ge 0\quad\quad\quad
-\end{align*}
+s.t. \quad y_i[w^Tx_i+b]\ge 1-\xi_i\\
 $$
 
-where $\xi_i$ is slack variable and $\displaystyle C\sum_{i=1}^N\xi_i$ is regulation termn with pre-set parameter $C$ to balance the weights of $w$ and $\xi_i$
+where $\xi_i \ge 0$ is slack variable and $\displaystyle C\sum_{i=1}^N\xi_i$ is regulation termn with pre-set parameter $C$ to balance the weights of $w$ and $\xi_i$
 
 Note: for large enough $\xi_i$, constraint (1) will always be satisfied but the optimization will be divergent. To avoid it, we add term $\displaystyle C\sum_{i=1}^N\xi_i$ in the objective function so that $\xi_i$ are restricted to not too large value.
 
@@ -69,7 +67,7 @@ The necessary and sufficient condition is:
 
 Mercer's Theorem
 
-for $\forall C_i, x_i\;\;(i=1...N)$ we have
+for $\forall C_i, x_i\quad(i=1...N)$ we have
 
 $$
 \begin{align}
@@ -88,7 +86,10 @@ $$
 minimize\quad &\frac{1}{2}||w||^2 + C\sum_{i=1}^N\xi_i\\
 s.t.\quad &y_i[w^T\varphi(x_i)+b]\ge 1-\xi_i\quad\\
 &\xi_i \ge 0\\
-\end{align}\\
+\end{align}
+$$
+
+$$
 K(x_i, x_j)=\varphi(x_i)^T\varphi(x_j)
 $$
 
@@ -120,15 +121,15 @@ Then its dual problem is
 
 $$
 \begin{align}
-Maximize\quad \theta(\alpha, \beta) &= \underset{\text{all\;w}}{inf}\{L(w, \alpha, \beta)\}\\
+Maximize\quad \theta(\alpha, \beta) &= \underset{\text{all\ w}}{inf}\{L(w, \alpha, \beta)\}\\
 s.t.\quad \alpha_i &\ge 0\quad(i=1...K)\\
 \end{align}\\
-(\bold{\alpha}\ge0)
+(\alpha\ge0)
 $$
 
-where $\underset{\text{all\;w}}{inf}$ means to calculate the minimal for all $w$. So the objective function of dual problem is to find the maximal of the minimal $L(w, \alpha, \beta)$ for all $w$ with given $(\alpha, \beta)$.
+where $\underset{\text{all\ w}}{inf}$ means to calculate the minimal for all $w$. So the objective function of dual problem is to find the maximal of the minimal $L(w, \alpha, \beta)$ for all $w$ with given $(\alpha, \beta)$.
 
-Here, we need to introduce a theorem: **if $w*$ is solution of the prime problem and $\alpha*$, $\beta*$ are the solution of dual problem, then we have $f(w^*)\ge\theta(\alpha^*, \beta^*)$**
+Here, we need to introduce a theorem: **if $w*$ is solution of the prime problem and $\alpha*$, $\beta*$ are the solution of dual problem, then we have** $f(w^*)\ge\theta(\alpha^*, \beta^*)$
 
 $$
 \begin{align}
