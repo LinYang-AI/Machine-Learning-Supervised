@@ -301,7 +301,7 @@ and
 $$
 \begin{align}
 w^T\varphi(X) &= [\sum^N_{i=1}\alpha_iy_i\varphi(x_i)]^T\varphi(x)\\
-&=\sum^N_{i=1}\alpha_iy_i\varphi(x_i)\varphi(x)\\
+&=\sum^N_{i=1}\alpha_iy_i\varphi(x_i)^T\varphi(x)\\
 &=\sum^N_{i=1}\alpha_iy_iK(x_i, x)
 \end{align}
 $$
